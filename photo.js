@@ -24,21 +24,45 @@ class Photo{
    }
 }
 
-let photo1 = new Photo(8, 10);
-let photo2 = new Photo(12, 28);
-
-console.log(photo1.toString());
-console.log(photo2.toString());
 
 
 class MattedPhoto extends Photo{
 
-    constructor(width = 8, height = 10, mattedPhoto = true){
-
+    constructor(width = 8, height = 10){
+        super(width, height);
+    }
+    price(){
+     return super.price() + 10;
+    }
+    toString(){
+        return "This is a Matted " + this.height + " by " + this.width + " photo, and it costs " + this.price() + " dollars.";
     }
 
 }
 
 class FramedPhoto extends Photo{
-
+    constructor(width = 8, height = 10){
+        super(width, height);
+    }
+    price(){
+     return super.price() + 25;
+    }
+    toString(){
+        return "This is a Framed " + this.height + " by " + this.width + " photo, and it costs " + this.price() + " dollars.";
+    }
 }
+
+
+let photo1 = new Photo(12, 28);
+let photo2 = new Photo(10, 12);
+let photo3 = new MattedPhoto(8, 10);
+let photo4 = new MattedPhoto(10, 12);
+let photo5 = new FramedPhoto(8, 10);
+let photo6 = new FramedPhoto(10, 12);
+
+console.log(photo1.toString());
+console.log(photo2.toString());
+console.log(photo3.toString());
+console.log(photo4.toString());
+console.log(photo5.toString());
+console.log(photo6.toString());
